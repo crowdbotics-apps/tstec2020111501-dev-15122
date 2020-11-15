@@ -11,7 +11,7 @@ import {connect} from 'react-redux';
 import {Field, reduxForm} from 'redux-form';
 import {LoginManager, AccessToken} from 'react-native-fbsdk';
 import CountryPicker from 'react-native-country-picker-modal';
-import Color from '../../../styles/color';
+import Color from '../../../styles/colors';
 import Button from '../../../component/Button/index';
 import TextStyle from '../../../component/Text';
 import styles from './styles';

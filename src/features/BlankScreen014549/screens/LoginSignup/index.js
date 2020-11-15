@@ -8,13 +8,13 @@ import {
   ScrollView,
 } from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import container from '../../../styles/style';
+import container from '../../../styles/styles';
 let width = Dimensions.get('window').width;
 let height = Dimensions.get('window').height;
 import {Tab, Tabs} from 'native-base';
 import Signup from './signup';
 import Login from './login';
-import Color from '../../../styles/color';
+import Color from '../../../styles/colors';
 import style from './styles';
 
 const EmailAuth = props => {
