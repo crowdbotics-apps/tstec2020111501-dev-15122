@@ -1,7 +1,7 @@
-import Color from './color';
+import Colors from './colors';
 export default {
   container: {
-    backgroundColor: Color.white,
+    backgroundColor: Colors.white,
     flex: 1,
   },
   marginHorizontal: {
