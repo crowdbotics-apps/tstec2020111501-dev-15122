@@ -1,5 +1,5 @@
 import React from 'react';
-import SignUp from './screens/LoginSignup/index';
+import LoginSignup from './screens/LoginSignup/index';
 import { createStackNavigator } from 'react-navigation-stack';
 
 const defaultStackSettings = {
@@ -7,7 +7,7 @@ const defaultStackSettings = {
 }
 
 export default EmailAuthStackScreen = createStackNavigator({
-  SignUp,
+  LoginSignup,
 },
   defaultStackSettings
 )
