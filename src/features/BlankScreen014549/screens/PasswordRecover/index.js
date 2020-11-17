@@ -7,6 +7,7 @@ import {styles} from '../styles';
 import * as emailAuthActions from '../../redux/actions';
 import Toast from 'react-native-simple-toast';
 import ErrorBox from '../../../../components/ErrorBox';
+import ErrorBox from '../../../../components/Button/index';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 class PasswordRecover extends Component {
     static navigationOptions = {
@@ -81,7 +82,7 @@ class PasswordRecover extends Component {
             }}>
                 <KeyboardAwareScrollView contentContainerStyle={styles.screen}>
                     {this.renderImage()}
-                    <Text style={styles.heading}>{"IwantSMART.com Rebate\nManagement Program"}</Text>
+                    <Text style={styles.heading}>{"Password Recovery"}</Text>
                     <View style={styles.fieldContainer}>
                         <Text style={styles.label}>Email address</Text>
                         <Input
@@ -94,17 +95,22 @@ class PasswordRecover extends Component {
                             textStyle={styles.text}
                             autoCapitalize="none"/>
                     </View>
-                    <TouchableOpacity
-                        activeOpacity={.7}
-                        style={[styles.actionButon]}
-                        onPress={this.submitPasswordReset}>
-                        <Text
-                            style={{
-                            color: '#fff',
-                            fontSize: 15
-                        }}>{"Reset Password"}</Text>
-                    </TouchableOpacity>
-                    
+                    <Button
+                     Text="Reset Password"
+                     loading={submitLoading}
+                     textStyle={{fontSize: 16}}
+                     onPress={this.submitPasswordReset}
+                    />
+//                    <TouchableOpacity
+//                        activeOpacity={.7}
+//                        style={[styles.actionButon]}
+//                        onPress={this.submitPasswordReset}>
+//                        <Text
+//                            style={{
+//                            color: '#fff',
+//                            fontSize: 15
+//                        }}>{"Reset Password"}</Text>
+//                   </TouchableOpacity>                    
                     <TouchableOpacity
                         activeOpacity={.7}
                         onPress={() => {
