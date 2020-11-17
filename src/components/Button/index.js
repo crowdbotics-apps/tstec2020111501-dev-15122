@@ -1,6 +1,7 @@
 import React from 'react';
 import Styles from './styles';
-import {Button} from 'react-native-paper';
+//import {Button} from 'react-native-paper';
+import {Button} from 'react-native-ui-kitten';
 
 const ButtonStyles = props => {
   return (
