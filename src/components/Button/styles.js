@@ -1,4 +1,4 @@
-import Color from '../../styles/color';
+import Color from '../../styles/colors';
 export default {
   viewStyle: {
     backgroundColor: Color.malibu,
