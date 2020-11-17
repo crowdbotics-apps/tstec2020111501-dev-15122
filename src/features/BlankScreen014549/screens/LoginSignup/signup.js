@@ -12,8 +12,8 @@ import {Field, reduxForm} from 'redux-form';
 import {LoginManager, AccessToken} from 'react-native-fbsdk';
 import CountryPicker from 'react-native-country-picker-modal';
 import Color from '../../../styles/colors';
-import Button from '../../../component/Button/index';
-import TextStyle from '../../../component/Text';
+import Button from '../../../components/Button/index';
+import TextStyle from '../../../components/Text';
 import styles from './styles';
 
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
