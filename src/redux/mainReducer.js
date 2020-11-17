@@ -1,19 +1,19 @@
-import { combineReducers } from "redux";
-
+import { combineReducers } from 'redux';
+// import { persistReducer } from 'redux-persist';
+import AsyncStorage from '@react-native-community/async-storage';
+import { reducer as reduxFormReducer } from 'redux-form';
 /**
  * You can import more reducers here
  */
-
-
 //@BlueprintReduxImportInsertion
-
-export const combinedReducers = combineReducers({
-  blank: (state, action) => {
-    if (state == null) state = [];
-    return state;
-  },
-
-
-  //@BlueprintReduxCombineInsertion
-
+import EmailAuthReducer from '../features/EmailAuth/redux/reducers';
+const config = {
+  key: 'LIFTED_REDUX_STORE_01',
+  storage: AsyncStorage,
+};
+//@BlueprintReduxCombineInsertion
+export const appReducer = combineReducers({
+  form: reduxFormReducer,
+  EmailAuth: EmailAuthReducer,
 });
+// export const appReducer;// = persistReducer(config, appReducer);
