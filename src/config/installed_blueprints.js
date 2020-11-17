@@ -1,6 +1,6 @@
 export const installed_blueprints = [
   //@BlueprintInsertion
-{ name: 'EmailAuth', human_name: 'Sign In / Sign Up', access_route: 'EmailAuth'},
+{ name: 'LoginSignup', human_name: 'Sign In / Sign Up', access_route: 'LoginSignup'},
 
   // you can add more installed blueprints here
   // access route is the route nate given to navigator
