@@ -31,14 +31,16 @@ const EmailAuth = props => {
                 backgroundColor: Color.malibu,
               }}>
               <ImageBackground
-                source={require('../../../assets/images/halfbg.png')}
+                source={{uri: "https://crowdbotics-slack-dev.s3.amazonaws.com/media/project_component_resources/halfbg.png"}}
+ //               source={require('../../../assets/images/halfbg.png')}
                 style={{
                   flex: 1,
                   justifyContent: 'center',
                   resizeMode: 'cover',
                 }}>
                 <Image
-                  source={require('../../../assets/images/cb-icon.png')}
+                source={{uri: "https://crowdbotics-slack-dev.s3.amazonaws.com/media/project_component_resources/cb-icon.png"}}
+//                  source={require('../../../assets/images/cb-icon.png')}
                   style={{
                     width: 155,
                     height: 155,
