@@ -294,6 +294,18 @@ const Signup = props => {
         viewStyle={{backgroundColor: Color.facebook}}
         onPress={() => loginFacebook()}
       /> */}
+      <View
+        style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+        }}>
+        <TouchableOpacity activeOpacity={.7} onPress={()=>{this.props.navigation.navigate("RecoverPassword")}}>
+            <Text style={[styles.textRow]}>
+              Forget your password?
+             </Text>
+        </TouchableOpacity>
+      </View>
     </>
   );
 };
