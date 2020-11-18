@@ -27,6 +27,14 @@ const initialState = {
   submit: false,
   fbsubmit: false,
   fcmPushToken: null,
+  PasswordRecoverSuccess: null,
+  PasswordResetSuccess: null,
+  errors: {
+      SignIn: null,
+      SignUp: null,
+      PasswordRecover: null,
+      PasswordReset: null
+  }
 };
 
 const showLoader = (state, action) => {

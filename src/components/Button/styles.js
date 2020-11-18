@@ -5,7 +5,8 @@ export default {
     borderRadius: 10,
     borderColor: Color.black,
     justifyContent: 'center',
-    margin: 10,
+    marginHorizontal: 10,
+    marginBottom: 10
   },
   textStyle: {
     fontSize: 16,

@@ -11,15 +11,15 @@ import {connect} from 'react-redux';
 import {Field, reduxForm} from 'redux-form';
 import {LoginManager, AccessToken} from 'react-native-fbsdk';
 import CountryPicker from 'react-native-country-picker-modal';
-import Color from '../../../styles/colors';
-import Button from '../../../components/Button/index';
-import TextStyle from '../../../components/Text';
+import Color from '../../../../styles/colors';
+import Button from '../../../../components/Button/index';
+import TextStyle from '../../../../components/Text';
 import styles from './styles';
 
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faCaretDown} from '@fortawesome/free-solid-svg-icons';
 
-import * as emailAuthActions from '../redux/actions';
+import * as emailAuthActions from '../../redux/actions';
 
 let width = Dimensions.get('window').width;
 // let height = Dimensions.get('window').height;
@@ -282,7 +282,7 @@ const Signup = props => {
         />
       </View>
       <Button
-        Text="Sign Up"
+        title="Sign Up"
         loading={submitLoading}
         textStyle={{fontSize: 16, fontWeight: '100'}}
         onPress={handleSubmit(values => signup(values))}
@@ -294,7 +294,7 @@ const Signup = props => {
         viewStyle={{backgroundColor: Color.facebook}}
         onPress={() => loginFacebook()}
       /> */}
-      <View
+      {/* <View
         style={{
         flex: 1,
         justifyContent: 'center',
@@ -305,7 +305,7 @@ const Signup = props => {
               Forget your password?
              </Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
     </>
   );
 };

@@ -1,6 +1,6 @@
 import {StyleSheet} from "react-native";
-
 import {scaleVertical, scale} from "../../../utils/scale";
+import Color from '../../../styles/colors';
 
 export const styles = StyleSheet.create({
     screen: {
@@ -10,28 +10,28 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 26,
         alignItems: 'center'
     },
-
     input: {
         backgroundColor: 'white',
         //marginLeft: scale(10), marginRight: scale(10),
         marginTop: scaleVertical(5),
         marginBottom: scaleVertical(5),
-        //borderRadius: 12,
+        borderRadius: 5,
         borderColor: '#95989A',
-        padding: 0,
-        height: 40
+        padding: 5,
+        height: 40,
+        borderWidth:1,
+        width:'100%'
+
     },
     label: {
         fontWeight: "bold",
         color: "#979797"
     },
-
     fieldContainer: {
         alignItems: 'flex-start',
         width: '100%',
         marginTop: scaleVertical(8)
     },
-
     heading: {
         textAlign: 'center',
         fontWeight: "bold",
@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
         color: "#707070"
     },
     actionButon: {
-        backgroundColor: '#3DAE2B',
+        backgroundColor:Color.malibu,
         borderWidth: 0,
         marginLeft: scale(10),
         marginRight: scale(10),
@@ -54,13 +54,11 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row'
     },
-
     image: {
         resizeMode: "contain",
         marginBottom: scale(10),
         marginTop: scaleVertical(63)
     },
-
     textRow: {
         textAlign: "center",
         color: '#707070',
@@ -68,7 +66,6 @@ export const styles = StyleSheet.create({
         marginVertical: scaleVertical(5),
         fontFamily: "Roboto-Regular"
     },
-
     boldText: {
         fontWeight: 'bold'
     },

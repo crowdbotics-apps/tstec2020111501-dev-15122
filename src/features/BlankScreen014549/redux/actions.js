@@ -26,7 +26,218 @@ export const AUTH_CHECK_TIMEOUT = 'AUTH_CHECK_TIMEOUT';
 export const UPDATE_USER_INFO = 'UPDATE_USER_INFO';
 export const UPDATE_RIDER_INFO = 'UPDATE_RIDER_INFO';
 
+export const EMAIL_AUTH_SIGNUP_REQUEST = "EMAIL_AUTH/SIGNUP/REQUEST";
+export const EMAIL_AUTH_SIGNUP_SUCCESS = "EMAIL_AUTH/SIGNUP/SUCCESS";
+export const EMAIL_AUTH_SIGNUP_ERROR = "EMAIL_AUTH/SIGNUP/ERROR";
+
+export const EMAIL_AUTH_LOGIN_REQUEST = "EMAIL_AUTH/LOGIN/REQUEST";
+export const EMAIL_AUTH_LOGIN_SUCCESS = "EMAIL_AUTH/LOGIN/SUCCESS";
+export const EMAIL_AUTH_LOGIN_ERROR = "EMAIL_AUTH/LOGIN/ERROR";
+
+// does not follow the patern REQUERST/SUCCESS/ERROR since it is syncronus action
+export const EMAIL_AUTH_LOGOUT = "EMAIL_AUTH/LOGOUT";
+
+export const EMAIL_AUTH_PASSWORD_RECOVER_REQUEST =
+  "EMAIL_AUTH/PASSORD_RECOVER/REQUEST";
+export const EMAIL_AUTH_PASSWORD_RECOVER_SUCCESS =
+  "EMAIL_AUTH/PASSORD_RECOVER/SUCCESS";
+export const EMAIL_AUTH_PASSWORD_RECOVER_ERROR =
+  "EMAIL_AUTH/PASSORD_RECOVER/ERROR";
+
+  
+export const EMAIL_AUTH_PASSWORD_RESET_REQUEST = "EMAIL_AUTH/EMAIL_AUTH_PASSWORD_RESET_REQUEST";
+export const EMAIL_AUTH_PASSWORD_RESET_SUCCESS = "EMAIL_AUTH/EMAIL_AUTH_PASSWORD_RECOVER_SUCCESS";
+export const EMAIL_AUTH_PASSWORD_RESET_ERROR = "EMAIL_AUTH/EMAIL_AUTH_PASSWORD_RESET_ERROR";
+
+
 export const showLoader = () => {
   return {
     type: SHOW_LOADER,
   };
+};
+export const hideLoader = () => {
+  return {
+    type: HIDE_LOADER,
+  };
+};
+
+export const formFBStart = () => {
+  return {
+    type: FORM_FB_START,
+  };
+};
+export const formFBEnd = () => {
+  return {
+    type: FORM_FB_END,
+  };
+};
+
+export const formStart = () => {
+  return {
+    type: FORM_START,
+  };
+};
+export const formEnd = () => {
+  return {
+    type: FORM_END,
+  };
+};
+
+export const authStart = () => {
+  return {
+    type: AUTH_START,
+  };
+};
+
+export const authSuccess = (token, user) => {
+  return {
+    type: AUTH_SUCCESS,
+    accessToken: token,
+    user,
+    errorMsg: '',
+  };
+};
+
+export const authFail = errorMsg => {
+  return {
+    type: AUTH_FAIL,
+    errorMsg,
+  };
+};
+
+export const changePass = () => {
+  return {
+    type: CHANGE_PASSWORD,
+  };
+};
+
+export const changeReset = message => {
+  return {
+    type: RESET_PASSWORD,
+    message,
+  };
+};
+
+export const updateUser = user => {
+  return {
+    type: UPDATE_USER,
+    user,
+  };
+};
+
+export const checkAuthStart = () => {
+  return {
+    type: CHECK_AUTH_START,
+  };
+};
+
+export const getFcmPushToken = fcmtoken => {
+  return {
+    type: GET_FCM_TOKEN,
+    fcmPushToken: fcmtoken,
+  };
+};
+
+export const fcmPushToken = params => {
+  return {
+    type: SET_FCM_TOKEN,
+    params: params,
+  };
+};
+
+export const initclearError = () => {
+  return {
+    type: INIT_CLEAR_ERROR,
+  };
+};
+
+export const clearError = () => {
+  return {
+    type: CLEAR_ERROR,
+    errorMsg: '',
+    message: '',
+  };
+};
+
+export const logout = () => {
+  return {
+    type: AUTH_INITIATE_LOGOUT,
+  };
+};
+
+export const logoutSucceed = () => {
+  return {
+    type: AUTH_LOGOUT,
+  };
+};
+
+export const checkAuthTimeout = expirationTime => {
+  return {
+    type: AUTH_CHECK_TIMEOUT,
+    expirationTime: expirationTime,
+  };
+};
+
+export const authCheckState = () => {
+  return {
+    type: AUTH_CHECK_STATE,
+  };
+};
+
+export const signIn = (params, callback) => {
+  return {
+    type: AUTH_LOGIN,
+    params: params,
+    callback: callback,
+  };
+};
+
+export const signUp = (params, callback) => {
+  return {
+    type: AUTH_SIGNUP,
+    params: params,
+    callback: callback,
+  };
+};
+
+export const fbLogin = (params, callback) => {
+  return {
+    type: FB_AUTH_LOGIN,
+    params: params,
+    callback: callback,
+  };
+};
+
+
+export const updateUserInfo = (params, callback) => {
+  return {
+    type: UPDATE_USER_INFO,
+    params: params,
+    callback: callback,
+  };
+};
+
+export const updateRiderProfile = (rider_pro_id, params) => {
+  return {
+    type: UPDATE_RIDER_INFO,
+    rider_pro_id: rider_pro_id,
+    params: params,
+  };
+};
+
+export const login = user => ({
+  type: actions.EMAIL_AUTH_LOGIN_REQUEST,
+  user
+});
+
+
+export const resetPassword = email => ({
+  type: actions.EMAIL_AUTH_PASSWORD_RECOVER_REQUEST,
+  email
+});
+
+export const setPassword = (password,token) => ({
+  type: actions.EMAIL_AUTH_PASSWORD_RESET_REQUEST,
+  password,
+  token
+});
