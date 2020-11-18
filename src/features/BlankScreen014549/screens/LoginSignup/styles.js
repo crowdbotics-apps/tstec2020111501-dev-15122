@@ -1,7 +1,7 @@
 import {Dimensions} from 'react-native';
 // let width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
-import Color from '../../../styles/colors';
+import Color from '../../../../styles/colors';
 export default {
   cardView: {
     top: 0,

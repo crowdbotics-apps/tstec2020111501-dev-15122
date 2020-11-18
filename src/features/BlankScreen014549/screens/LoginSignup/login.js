@@ -1,27 +1,28 @@
 import React from 'react';
-import {View, Text, TextInput, KeyboardAvoidingView, TouchableOpacity, Alert} from 'react-native';
-import {connect} from 'react-redux';
-import {Field, reduxForm} from 'redux-form';
-import {LoginManager, AccessToken} from 'react-native-fbsdk';
-import Color from '../../../styles/colors';
-import Button from '../../../components/Button/index';
-import TextStyle from '../../../components/Text';
+import { View, Text, TextInput, KeyboardAvoidingView, TouchableOpacity, Alert } from 'react-native';
+import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
+import { LoginManager, AccessToken } from 'react-native-fbsdk';
+import Color from '../../../../styles/colors';
+import Button from '../../../../components/Button/index';
+import TextStyle from '../../../../components/Text';
 import styles from './styles';
-import * as emailAuthActions from '../redux/actions';
+import * as emailAuthActions from '../../redux/actions';
+import * as NavigationService from '../../../../navigator/NavigationService'
 
 const renderField = ({
   label,
   keyboardType,
   placeholder,
   secureTextEntry,
-  meta: {touched, error, warning},
-  input: {onChange, value, ...restInput},
+  meta: { touched, error, warning },
+  input: { onChange, value, ...restInput },
 }) => {
   return (
     <View>
       <TextStyle
         Text={label}
-        extraTextStyle={{color: '#6A6A6A', fontSize: 12}}
+        extraTextStyle={{ color: '#6A6A6A', fontSize: 12 }}
       />
       <TextInput
         autoCapitalize="none"
@@ -36,9 +37,9 @@ const renderField = ({
         {...restInput}
       />
       {touched &&
-        ((error && <Text style={{color: 'red', fontSize: 9}}>{error}</Text>) ||
+        ((error && <Text style={{ color: 'red', fontSize: 9 }}>{error}</Text>) ||
           (warning && (
-            <Text style={{color: 'orange', fontSize: 9}}>{warning}</Text>
+            <Text style={{ color: 'orange', fontSize: 9 }}>{warning}</Text>
           )))}
     </View>
   );
@@ -57,8 +58,8 @@ const Login = props => {
     Alert.alert(
       'Error',
       msg,
-      [{text: 'OK', onPress: () => onClearAllErrors()}],
-      {cancelable: false},
+      [{ text: 'OK', onPress: () => onClearAllErrors() }],
+      { cancelable: false },
     );
   };
 
@@ -103,7 +104,7 @@ const Login = props => {
   return (
     <KeyboardAvoidingView>
       {errorMsg ? showAlertError(errorMsg) : null}
-      <View style={{marginVertical: 20, marginHorizontal: 15}}>
+      <View style={{ marginVertical: 20, marginHorizontal: 15 }}>
         <Field
           name="email"
           keyboardType="email-address"
@@ -124,27 +125,27 @@ const Login = props => {
         />
       </View>
       <Button
-        Text="Login"
+        title="Login"
         loading={submitLoading}
-        textStyle={{fontSize: 16}}
+        textStyle={{ fontSize: 16 }}
         onPress={handleSubmit(login)}
       />
       <Button
-        Text="Connect with Facebook"
+        title="Connect with Facebook"
         loading={fbLoading}
-        textStyle={{fontSize: 16, fontWeight: '100'}}
-        viewStyle={{backgroundColor: Color.facebook}}
+        textStyle={{ fontSize: 16, fontWeight: '100' }}
+        viewStyle={{ backgroundColor: Color.facebook, }}
         onPress={() => loginFacebook()}
       />
       <View
         style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center'
         }}>
-        <TouchableOpacity activeOpacity={.7} onPress={()=>{this.props.navigation.navigate("RecoverPassword")}}>
-            <Text style={[styles.textRow]}>
-              Forget your password?
+        <TouchableOpacity activeOpacity={.7} onPress={() => {  NavigationService.navigate("PasswordRecover") }}>
+          <Text style={[styles.textRow]}>
+            Forget your password?
              </Text>
         </TouchableOpacity>
       </View>

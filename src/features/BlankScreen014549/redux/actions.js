@@ -26,6 +26,30 @@ export const AUTH_CHECK_TIMEOUT = 'AUTH_CHECK_TIMEOUT';
 export const UPDATE_USER_INFO = 'UPDATE_USER_INFO';
 export const UPDATE_RIDER_INFO = 'UPDATE_RIDER_INFO';
 
+export const EMAIL_AUTH_SIGNUP_REQUEST = "EMAIL_AUTH/SIGNUP/REQUEST";
+export const EMAIL_AUTH_SIGNUP_SUCCESS = "EMAIL_AUTH/SIGNUP/SUCCESS";
+export const EMAIL_AUTH_SIGNUP_ERROR = "EMAIL_AUTH/SIGNUP/ERROR";
+
+export const EMAIL_AUTH_LOGIN_REQUEST = "EMAIL_AUTH/LOGIN/REQUEST";
+export const EMAIL_AUTH_LOGIN_SUCCESS = "EMAIL_AUTH/LOGIN/SUCCESS";
+export const EMAIL_AUTH_LOGIN_ERROR = "EMAIL_AUTH/LOGIN/ERROR";
+
+// does not follow the patern REQUERST/SUCCESS/ERROR since it is syncronus action
+export const EMAIL_AUTH_LOGOUT = "EMAIL_AUTH/LOGOUT";
+
+export const EMAIL_AUTH_PASSWORD_RECOVER_REQUEST =
+  "EMAIL_AUTH/PASSORD_RECOVER/REQUEST";
+export const EMAIL_AUTH_PASSWORD_RECOVER_SUCCESS =
+  "EMAIL_AUTH/PASSORD_RECOVER/SUCCESS";
+export const EMAIL_AUTH_PASSWORD_RECOVER_ERROR =
+  "EMAIL_AUTH/PASSORD_RECOVER/ERROR";
+
+  
+export const EMAIL_AUTH_PASSWORD_RESET_REQUEST = "EMAIL_AUTH/EMAIL_AUTH_PASSWORD_RESET_REQUEST";
+export const EMAIL_AUTH_PASSWORD_RESET_SUCCESS = "EMAIL_AUTH/EMAIL_AUTH_PASSWORD_RECOVER_SUCCESS";
+export const EMAIL_AUTH_PASSWORD_RESET_ERROR = "EMAIL_AUTH/EMAIL_AUTH_PASSWORD_RESET_ERROR";
+
+
 export const showLoader = () => {
   return {
     type: SHOW_LOADER,
@@ -200,3 +224,20 @@ export const updateRiderProfile = (rider_pro_id, params) => {
     params: params,
   };
 };
+
+export const login = user => ({
+  type: actions.EMAIL_AUTH_LOGIN_REQUEST,
+  user
+});
+
+
+export const resetPassword = email => ({
+  type: actions.EMAIL_AUTH_PASSWORD_RECOVER_REQUEST,
+  email
+});
+
+export const setPassword = (password,token) => ({
+  type: actions.EMAIL_AUTH_PASSWORD_RESET_REQUEST,
+  password,
+  token
+});

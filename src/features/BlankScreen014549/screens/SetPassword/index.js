@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Image, Dimensions, View, TouchableOpacity, ScrollView} from 'react-native';
-import {Text, Input} from 'react-native-ui-kitten';
-import Color from '../../../styles/color';
-import {styles} from '../styles';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Image, Dimensions, View, TouchableOpacity, Text, TextInput, ScrollView } from 'react-native';
+
+// import Color from '../../../styles/color';
+import { styles } from '../styles';
 import * as emailAuthActions from '../../redux/actions';
 import ErrorBox from '../../../../components/ErrorBox';
 import Button from '../../../../components/Button/index';
@@ -61,7 +61,7 @@ class PasswordRecover extends Component {
             .bind(this);
     }
 
-    componentDidMount() {}
+    componentDidMount() { }
 
     renderImage = () => {
         const screenSize = Dimensions.get('window');
@@ -71,34 +71,34 @@ class PasswordRecover extends Component {
         };
         return (<Image
             style={[styles.image, imageSize]}
-            source={{uri: "https://crowdbotics-slack-dev.s3.amazonaws.com/media/project_component_resources/cb-icon.png"}}/>);
+            source={{ uri: "https://crowdbotics-slack-dev.s3.amazonaws.com/media/project_component_resources/cb-icon.png" }} />);
     };
 
     handlePasswordChange(password) {
-        this.setState({password});
+        this.setState({ password });
     }
 
     handleCPasswordChange(cpassword) {
-        this.setState({cpassword});
+        this.setState({ cpassword });
     }
 
     handleTokenChange(token) {
-        this.setState({token});
+        this.setState({ token });
     }
 
     renderErrors() {
-        const {passwordResetErrors} = this.props;
+        const { passwordResetErrors } = this.props;
         if (passwordResetErrors) {
-            return <ErrorBox errorText={passwordResetErrors}/>;
+            return <ErrorBox errorText={passwordResetErrors} />;
         }
     }
 
     submitPasswordReset() {
-        const {actions: {
-                setPassword
-            }} = this.props;
+        const { actions: {
+            setPassword
+        } } = this.props;
 
-        const {password, cpassword, token} = this.state;
+        const { password, cpassword, token } = this.state;
 
         // todo add disable buttons on submit
         let errors = validate({
@@ -110,13 +110,13 @@ class PasswordRecover extends Component {
             console.log(errors)
 
             if (errors.cpassword) {
-                this.setState({passwordResetErrors: "Password is different from password confirmation."})
+                this.setState({ passwordResetErrors: "Password is different from password confirmation." })
                 Toast.show("Password is different from password confirmation.", Toast.LONG);
                 return false;
             }
             if (errors.password) {
-                this.setState({passwordResetErrors:errors.password[0]})
-                Toast.show( errors.password[0] , Toast.LONG);
+                this.setState({ passwordResetErrors: errors.password[0] })
+                Toast.show(errors.password[0], Toast.LONG);
                 return false;
             }
             return;
@@ -125,27 +125,27 @@ class PasswordRecover extends Component {
         if (password.search(/\d/) == -1) {
 
             Toast.show("Password must be at least 8 digits and must have at least one letter and one num" +
-                    "ber.",
-            Toast.LONG);
+                "ber.",
+                Toast.LONG);
             return false;
         } else if (password.search(/[a-zA-Z]/) == -1) {
 
             Toast.show("Password must be at least 8 digits and must have at least one letter and one num" +
-                    "ber.",
-            Toast.LONG);
+                "ber.",
+                Toast.LONG);
             return false;
         } else if (password.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+]/) != -1) {
 
             Toast.show("Password must be at least 8 digits and must have at least one letter and one num" +
-                    "ber.",
-            Toast.LONG);
+                "ber.",
+                Toast.LONG);
             return false;
         }
         setPassword(password, token);
     }
 
     render() {
-        const {password, cpassword, token} = this.state;
+        const { password, cpassword, token } = this.state;
 
         return (
             <View style={{
@@ -158,21 +158,21 @@ class PasswordRecover extends Component {
 
                     <View style={[styles.fieldContainer]}>
                         <Text style={styles.label}>Reset Code</Text>
-                        <Input
+                        <TextInput
                             value={token}
                             onChangeText={this
-                            .handleTokenChange
-                            .bind(this)}
+                                .handleTokenChange
+                                .bind(this)}
                             placeholder="••••••••"
                             size="small"
                             style={styles.input}
                             textStyle={styles.text}
-                            autoCapitalize="none"/>
+                            autoCapitalize="none" />
                     </View>
 
                     <View style={styles.fieldContainer}>
                         <Text style={styles.label}>New Password</Text>
-                        <Input
+                        <TextInput
                             value={password}
                             onChangeText={this.handlePasswordChange}
                             placeholder="••••••••"
@@ -180,11 +180,11 @@ class PasswordRecover extends Component {
                             style={styles.input}
                             secureTextEntry={true}
                             textStyle={styles.text}
-                            autoCapitalize="none"/>
+                            autoCapitalize="none" />
                     </View>
                     <View style={styles.fieldContainer}>
                         <Text style={styles.label}>Confirm New Password</Text>
-                        <Input
+                        <TextInput
                             value={cpassword}
                             onChangeText={this.handleCPasswordChange}
                             placeholder="••••••••"
@@ -192,32 +192,32 @@ class PasswordRecover extends Component {
                             style={styles.input}
                             secureTextEntry={true}
                             textStyle={styles.text}
-                            autoCapitalize="none"/>
+                            autoCapitalize="none" />
                     </View>
-//                    <TouchableOpacity
-//                        activeOpacity={.7}
-//                        style={[styles.actionButon]}
-//                        onPress={this.submitPasswordReset}>
-//                        <Text
-//                            style={{
-//                            color: '#fff',
-//                            fontSize: 15
-//                        }}>{"Reset Password"}</Text>
-//                    </TouchableOpacity>
-                    <Button
-                      Text="Reset Password"
-                      loading={submitLoading}
-                      textStyle={{fontSize: 16}}
-                      onPress={this.submitPasswordReset}
-                    />
+                    <TouchableOpacity
+                        activeOpacity={.7}
+                        style={[styles.actionButon]}
+                        onPress={this.submitPasswordReset}>
+                        <Text
+                            style={{
+                                color: '#fff',
+                                fontSize: 15
+                            }}>{"Reset Password"}</Text>
+                    </TouchableOpacity>
+                    {/* <Button
+                        title="Reset Password"
+                        loading={submitLoading}
+                        textStyle={{ fontSize: 16 }}
+                        onPress={this.submitPasswordReset}
+                    /> */}
                     <TouchableOpacity
                         activeOpacity={.7}
                         onPress={() => {
-                        this
-                            .props
-                            .navigation
-                            .navigate("SignIn")
-                    }}>
+                            this
+                                .props
+                                .navigation
+                                .navigate("LoginSignup")
+                        }}>
                         <Text style={[styles.textRow]}>
                             Back to login?
                         </Text>
@@ -230,7 +230,7 @@ class PasswordRecover extends Component {
     }
 }
 
-const mapStateToProps = state => ({passwordResetErrors: state.EmailAuth.errors.PasswordReset});
+const mapStateToProps = state => ({ passwordResetErrors: state.EmailAuth.errors.PasswordReset });
 
 const mapDispatchToProps = dispatch => ({
     actions: {

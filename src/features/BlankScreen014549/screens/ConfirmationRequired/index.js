@@ -1,5 +1,6 @@
 import React from 'react';
-import {Text, Layout, Button} from 'react-native-ui-kitten';
+// import {Text, Layout, Button} from 'react-native-ui-kitten';
+import {Text, Button, View} from 'react-native';
 import {styles} from '../styles';
 
 export default function ConfirmationRequired(props) {
@@ -9,7 +10,7 @@ export default function ConfirmationRequired(props) {
   };
 
   return (
-    <Layout style={styles.screen}>
+    <View style={styles.screen}>
       <Text style={styles.textRow}>
         We have sent a confirmation link to your email address. In order
         continue, please click the confirmation link.
@@ -17,6 +18,6 @@ export default function ConfirmationRequired(props) {
       <Button style={styles.actionButon} onPress={handleOnPress}>
         Return to blueprints
       </Button>
-    </Layout>
+    </View>
   );
 }

@@ -1,13 +1,12 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Image, Dimensions, View, TouchableOpacity, ScrollView} from 'react-native';
-import {Text,  Input} from 'react-native-ui-kitten';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Image, Dimensions, View, TouchableOpacity, TextInput, Text, ScrollView } from 'react-native';
 
-import {styles} from '../styles';
+import { styles } from '../styles';
 import * as emailAuthActions from '../../redux/actions';
 import Toast from 'react-native-simple-toast';
 import ErrorBox from '../../../../components/ErrorBox';
-import ErrorBox from '../../../../components/Button/index';
+import Button from '../../../../components/Button';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 class PasswordRecover extends Component {
     static navigationOptions = {
@@ -34,11 +33,11 @@ class PasswordRecover extends Component {
             .bind(this);
     }
 
-    componentWillReceiveProps(nextProps){
-      const {PasswordRecoverSuccess} = nextProps;
-      if (PasswordRecoverSuccess) {
-        Toast.show('Password Reset Email Sent..', Toast.LONG);
-      }
+    componentWillReceiveProps(nextProps) {
+        const { PasswordRecoverSuccess } = nextProps;
+        if (PasswordRecoverSuccess) {
+            Toast.show('Password Reset Email Sent..', Toast.LONG);
+        }
     }
 
     renderImage = () => {
@@ -49,32 +48,33 @@ class PasswordRecover extends Component {
         };
         return (<Image
             style={[styles.image, imageSize]}
-            source={require('../../../../assets/icons/logo.png')}/>);
+            source={{ uri: "https://crowdbotics-slack-dev.s3.amazonaws.com/media/project_component_resources/cb-icon.png" }}
+        />);
     };
 
     handleEmailChange(email) {
-        this.setState({email});
+        this.setState({ email });
     }
 
     renderErrors() {
-        const {recoverPasswordErrors} = this.props;
+        const { recoverPasswordErrors } = this.props;
         if (recoverPasswordErrors) {
-            return <ErrorBox errorText={recoverPasswordErrors}/>;
+            return <ErrorBox errorText={recoverPasswordErrors} />;
         }
     }
 
     submitPasswordReset() {
-        const {actions: {
-                recoverPassword
-            }} = this.props;
+        const { actions: {
+            recoverPassword
+        } } = this.props;
 
-        const {email} = this.state;
+        const { email } = this.state;
 
         recoverPassword(email);
     }
 
     render() {
-        const {email} = this.state;
+        const { email } = this.state;
 
         return (
             <View style={{
@@ -85,7 +85,7 @@ class PasswordRecover extends Component {
                     <Text style={styles.heading}>{"Password Recovery"}</Text>
                     <View style={styles.fieldContainer}>
                         <Text style={styles.label}>Email address</Text>
-                        <Input
+                        <TextInput
                             value={email}
                             onChangeText={this.handleEmailChange}
                             placeholder="eg: yourname@gmail.com"
@@ -93,32 +93,32 @@ class PasswordRecover extends Component {
                             style={styles.input}
                             keyboardType="email-address"
                             textStyle={styles.text}
-                            autoCapitalize="none"/>
+                            autoCapitalize="none" />
                     </View>
-                    <Button
-                     Text="Reset Password"
-                     loading={submitLoading}
-                     textStyle={{fontSize: 16}}
-                     onPress={this.submitPasswordReset}
-                    />
-//                    <TouchableOpacity
-//                        activeOpacity={.7}
-//                        style={[styles.actionButon]}
-//                        onPress={this.submitPasswordReset}>
-//                        <Text
-//                            style={{
-//                            color: '#fff',
-//                            fontSize: 15
-//                        }}>{"Reset Password"}</Text>
-//                   </TouchableOpacity>                    
+                    {/* <Button
+                        title="Reset Password"
+                        loading={submitLoading}
+                        textStyle={{ fontSize: 16 }}
+                        onPress={this.submitPasswordReset}
+                    /> */}
+                    <TouchableOpacity
+                        activeOpacity={.7}
+                        style={[styles.actionButon]}
+                        onPress={this.submitPasswordReset}>
+                        <Text
+                            style={{
+                                color: '#fff',
+                                fontSize: 15
+                            }}>{"Reset Password"}</Text>
+                    </TouchableOpacity>
                     <TouchableOpacity
                         activeOpacity={.7}
                         onPress={() => {
-                        this
-                            .props
-                            .navigation
-                            .navigate("ResetPassword")
-                    }}>
+                            this
+                                .props
+                                .navigation
+                                .navigate("SetPassword")
+                        }}>
                         <Text style={[styles.textRow]}>
                             have reset code ? reset now!
                         </Text>
@@ -126,11 +126,11 @@ class PasswordRecover extends Component {
                     <TouchableOpacity
                         activeOpacity={.7}
                         onPress={() => {
-                        this
-                            .props
-                            .navigation
-                            .goBack()
-                    }}>
+                            this
+                                .props
+                                .navigation
+                                .goBack()
+                        }}>
                         <Text style={[styles.textRow]}>
                             Back to login?
                         </Text>
@@ -143,7 +143,7 @@ class PasswordRecover extends Component {
     }
 }
 
-const mapStateToProps = state => ({recoverPasswordErrors: state.EmailAuth.errors.PasswordRecover,PasswordRecoverSuccess: state.EmailAuth.errors.PasswordRecoverSuccess});
+const mapStateToProps = state => ({ recoverPasswordErrors: state.EmailAuth.errors.PasswordRecover, PasswordRecoverSuccess: state.EmailAuth.errors.PasswordRecoverSuccess });
 
 const mapDispatchToProps = dispatch => ({
     actions: {
