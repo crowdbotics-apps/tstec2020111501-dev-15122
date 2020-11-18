@@ -28,6 +28,9 @@ export default class Blank extends React.Component {
   render = () => (
     <View style={styles.container}>
       <Text>This is your new component</Text>
+      <View style={{justifyContent:'center', alignItems:'center',  width:100, height:100, borderWidth:2, backgroundColor:'pink'}}>
+      <Text onPress={()=>this.props.navigation.navigate('BlankScreen014549')}> I am a product... ADD ME</Text>
+      </View>
     </View>
   );
 }
