@@ -1,6 +1,6 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import {createDrawerNavigator} from 'react-navigation-drawer';
+import { createDrawerNavigator } from 'react-navigation-drawer';
 
 import SplashScreen from "../features/SplashScreen";
 import SideMenu from './sideMenu';
@@ -20,20 +20,20 @@ import BlankScreen014549Navigator from '../features/BlankScreen014549/navigator'
 
 const AppNavigator = {
 
-    //@BlueprintNavigationInsertion
-BlankScreen714664: { screen: BlankScreen714664Navigator },
-BlankScreen614663: { screen: BlankScreen614663Navigator },
-BlankScreen514662: { screen: BlankScreen514662Navigator },
-BlankScreen414661: { screen: BlankScreen414661Navigator },
-BlankScreen314660: { screen: BlankScreen314660Navigator },
-BlankScreen214659: { screen: BlankScreen214659Navigator },
-BlankScreen114658: { screen: BlankScreen114658Navigator },
-BlankScreen014549: { screen: BlankScreen014549Navigator },
+  //@BlueprintNavigationInsertion
+  BlankScreen714664: { screen: BlankScreen714664Navigator },
+  BlankScreen614663: { screen: BlankScreen614663Navigator },
+  BlankScreen514662: { screen: BlankScreen514662Navigator },
+  BlankScreen414661: { screen: BlankScreen414661Navigator },
+  BlankScreen314660: { screen: BlankScreen314660Navigator }, //home
+  BlankScreen214659: { screen: BlankScreen214659Navigator }, //onboarding
+  BlankScreen114658: { screen: BlankScreen114658Navigator }, //splash
+  BlankScreen014549: { screen: BlankScreen014549Navigator }, //login
 
-    /** new navigators can be added here */
-    SplashScreen: {
-      screen: SplashScreen
-    }
+  /** new navigators can be added here */
+  SplashScreen: {
+    screen: SplashScreen
+  }
 };
 
 const DrawerAppNavigator = createDrawerNavigator(
@@ -42,7 +42,7 @@ const DrawerAppNavigator = createDrawerNavigator(
   },
   {
     contentComponent: SideMenu,
-    initialRouteName:"SplashScreen"
+    initialRouteName: "BlankScreen114658",
   },
 );
 

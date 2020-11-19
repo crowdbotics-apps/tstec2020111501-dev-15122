@@ -5,15 +5,13 @@ import PasswordRecover from './screens/PasswordRecover';
 import SetPassword from './screens/SetPassword';
 import { createStackNavigator } from 'react-navigation-stack';
 
-const defaultStackSettings = {
-  defaultNavigationOptions: ({ navigation }) => ({ header: null }),
-}
-
 export default AuthStack = createStackNavigator({
   LoginSignup,
   ConfirmationRequired,
   PasswordRecover,
   SetPassword
 },
-  defaultStackSettings
+{
+  defaultNavigationOptions: ({ navigation }) => ({ header: null }),
+}
 )

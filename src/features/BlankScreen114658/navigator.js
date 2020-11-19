@@ -7,6 +7,7 @@ export default BlankBlueprintNavigator = createStackNavigator(
     Blank: { screen: Blank }
   },
   {
-    initialRouteName: "Blank"
+    initialRouteName: "Blank",
+    defaultNavigationOptions: ({ navigation }) => ({ header: null }),
   }
 );
