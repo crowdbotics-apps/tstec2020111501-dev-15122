@@ -16,7 +16,7 @@ import Button from '../../../../components/Button/index';
 import TextStyle from '../../../../components/Text';
 import styles from './styles';
 
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome'; // couldn't this be from react-native-vector-icons???
 import {faCaretDown} from '@fortawesome/free-solid-svg-icons';
 
 import * as emailAuthActions from '../../redux/actions';
